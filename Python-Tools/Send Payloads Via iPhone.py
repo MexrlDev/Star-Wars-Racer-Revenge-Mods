@@ -13,7 +13,7 @@ import re
 
 # IP Config
 
-DEFAULT_ROUTER_IP = ""   # ADD… Your up here.. you can also find it in the Alert JIT Exploit give you.
+DEFAULT_ROUTER_IP = ""   # <<< ADD… Your IP here.. you can also find it in the Alert JIT Exploit give you.
 
 DEFAULT_PORT = 9026
 

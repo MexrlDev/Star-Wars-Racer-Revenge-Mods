@@ -30,7 +30,7 @@ local msg = "This is a test notification"
 send_notification(msg)
 """,
   # NetCRTL by TheFlow0, Lua port by egycnq. originally from https://github.com/Gezine/Luac0re/blob/main/payloads/poops_ps5.lua
-    "NetCTRL_ps5": """
+    "poops_ps5": """
 -- poops ps5 port
 -- based on poops.lua (ps4) by egycnq
 

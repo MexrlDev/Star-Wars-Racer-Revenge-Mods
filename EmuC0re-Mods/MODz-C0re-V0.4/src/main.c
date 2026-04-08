@@ -19,7 +19,7 @@
 #define COL_BRIGHTGREEN 0x2A          // bright green for MODZ title in list
 #define COL_SILVER 0x10
 
-// ---------- UI Layout Constants (change these to reposition elements) ----------
+// ---------- UI Layout Constants ----------
 // ROM selection screen
 #define ROM_Y_MODZ          (ROM_Y_PATH + 18)
 #define ROM_Y_EGY           0
@@ -32,12 +32,12 @@
 #define ROM_Y_COUNT         (ROM_Y_LIBRARY + 9)
 #define ROM_Y_PATH          (ROM_Y_LIBRARY + 18)
 #define ROM_Y_BLUE_LINE     (ROM_Y_PATH + 11)
-#define ROM_Y_HINT1         (NES_H - 20)   // moved down 2px
-#define ROM_Y_HINT2         (NES_H - 10)   // moved down 2px
+#define ROM_Y_HINT1         (NES_H - 20)
+#define ROM_Y_HINT2         (NES_H - 10)
 
 // FTP loading screen
 #define FTP_Y_MODZ         35
-#define FTP_Y_EGY          50      // EGYDEVTEAM above NES EMULATOR
+#define FTP_Y_EGY          50
 #define FTP_Y_NES          64
 #define FTP_Y_VERSION      76
 #define FTP_Y_MSG1         96
@@ -757,7 +757,7 @@ void _start(u64 eboot_base, u64 dlsym_addr, struct ext_args *ext) {
             break;
         }
 
-        // --- loading and running game (unchanged) ---
+        // --- loading and running game ---
 
         char rom_path[96];
         { int pi = 0; const char *p = rom_dir;

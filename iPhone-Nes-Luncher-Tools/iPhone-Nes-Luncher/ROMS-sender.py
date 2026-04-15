@@ -10,7 +10,7 @@ import sys
 from ftplib import FTP
 
 # ========== CONFIGURE THESE ==========
-DEFAULT_PS5_IP = "192.168.10.248"   # Change to your PS4/PS5 IP
+DEFAULT_PS5_IP = ""   # Change to your PS4/PS5 IP
 DEFAULT_ROMS_DIR = "roms"            # Folder containing .nes files
 FTP_PORT = 1337
 # =====================================

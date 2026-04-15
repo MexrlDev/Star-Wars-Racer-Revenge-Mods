@@ -11,7 +11,7 @@ import sys
 from ftplib import FTP
 
 # ========== CONFIGURE THESE ==========
-DEFAULT_PS5_IP = "192.168.10.248"   # <<< change it to your PS4/PS5 IP
+DEFAULT_PS5_IP = ""   # <<< change it to your PS4/PS5 IP
 DEFAULT_ROMS_DIR = "roms"   # <<< Needs to be .nes, put them all into the roms folder
 DEFAULT_LAUNCHER = "nes.lua"   # Lua payload file to load
 PAYLOAD_PORT = 9026

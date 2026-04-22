@@ -12,7 +12,7 @@ from ftplib import FTP
 
 # ========== CONFIGURE THESE ==========
 DEFAULT_PS5_IP = ""   # <<< change it to your PS4/PS5 IP
-DEFAULT_ROMS_DIR = "roms"   # <<< Needs to be .snes, put them all into the roms folder
+DEFAULT_ROMS_DIR = "roms"   # <<< Needs to be .sfc or .smc, put them all into the roms folder
 DEFAULT_LAUNCHER = "snes.lua"   # Lua payload file to load
 PAYLOAD_PORT = 9026
 FTP_PORT = 1337
@@ -190,7 +190,7 @@ def main():
     roms_dir = DEFAULT_ROMS_DIR
     launcher = DEFAULT_LAUNCHER
     skip_upload = False
-    extensions = {'.snes'}
+    extensions = {'.sfc', '.smc'}
     ftp_wait = 10
 
     i = 1
